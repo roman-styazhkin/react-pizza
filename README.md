@@ -1,0 +1,22 @@
+Компоненты приложения:
+
+1. Header
+2. Logo
+3. CartLink
+4. Button
+5. PizzaCard
+6. Image
+7. SearchInput
+8. Input
+9. PizzaSwitcher
+10. Pagination
+11. Sort
+12. SortModal
+13. SortModalItem
+14. Category
+15. CategoryTab
+16. CategoryTabList
+17. PizzaPrice
+18. PizzaIncrement
+19. PizzaTitle
+20. CartReset
