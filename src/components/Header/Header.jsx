@@ -20,8 +20,6 @@ const Header = () => {
   const { isLoading } = useSelector(selectPizzas);
   const inputRef = useRef();
 
-  console.log(pathname);
-
   const updateSearch = useCallback(
     debounce((e) => dispatch(setSearchQuery(e.target.value)), 1000),
     []
@@ -42,7 +40,7 @@ const Header = () => {
     <header className={styles.root}>
       <div className={styles.root__inner}>
         <div className={styles.root__column}>
-          <Link className={styles.root__logo} to="/react-pizza">
+          <Link className={styles.root__logo} to="/react-pizza/">
             <img src={logo} alt="logo" />
           </Link>
         </div>
