@@ -15,10 +15,12 @@ const Header = () => {
   const dispatch = useDispatch();
   const [localSearchQuery, setLocalSearchQuery] = useState("");
   const { pathname } = useLocation();
-  const isHomePage = pathname === "/react-pizza";
+  const isHomePage = pathname === "/react-pizza/";
   const { totalPizzaCount, totalPrice } = useSelector(selectCart);
   const { isLoading } = useSelector(selectPizzas);
   const inputRef = useRef();
+
+  console.log(pathname);
 
   const updateSearch = useCallback(
     debounce((e) => dispatch(setSearchQuery(e.target.value)), 1000),
