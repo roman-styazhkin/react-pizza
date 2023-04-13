@@ -67,7 +67,7 @@ const Header = () => {
             <div className={styles.root__column}>
               <div className={styles.root__cart}>
                 <Link
-                  to="/cart"
+                  to="/react-pizza/cart"
                   className={classNames("", {
                     [styles.disabled]: isLoading,
                   })}
