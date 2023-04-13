@@ -45,7 +45,7 @@ const Header = () => {
           </Link>
         </div>
 
-        {true && (
+        {isHomePage && (
           <>
             <div className={styles.root__search}>
               <Input
