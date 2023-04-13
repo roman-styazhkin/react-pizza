@@ -10,7 +10,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/react-pizza" element={<Home />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/react-pizza/cart" element={<Cart />} />
       </Routes>
     </SimpleBar>
   );
