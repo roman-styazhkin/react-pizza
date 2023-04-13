@@ -1,0 +1,27 @@
+@import "../../styles/media.scss";
+
+.root {
+  padding: 120px 0 40px;
+
+  @include for-tablet-landscape-up {
+    padding: 150px 0 40px;
+  }
+
+  &__top {
+    display: flex;
+    align-items: baseline;
+    column-gap: 40px;
+    row-gap: 20px;
+    justify-content: space-between;
+    margin-bottom: 25px;
+
+    @include for-tablet-only {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    margin-bottom: 40px;
+  }
+}

@@ -1,0 +1,90 @@
+@import "../../styles/media.scss";
+
+.root {
+  font-size: 22px;
+
+  margin-top: auto;
+  padding: 40px 0;
+
+  @include for-tablet-only {
+    font-size: 20px;
+  }
+
+  &__top,
+  &__bottom {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    @include for-phone-only {
+      row-gap: 15px;
+    }
+  }
+
+  &__top {
+    margin-bottom: 30px;
+  }
+
+  &__count,
+  &__sum {
+    font-weight: 400;
+
+    margin: 0;
+  }
+
+  &__sum {
+    b {
+      color: var(--orange);
+    }
+  }
+
+  &__button {
+    font-size: 16px;
+
+    padding: 10px 20px;
+
+    border-radius: 20px;
+
+    &:active {
+      transform: translateY(1px);
+    }
+
+    @include for-phone-only {
+      width: 100%;
+    }
+  }
+
+  &__back {
+    padding-left: 40px;
+
+    opacity: 0.3;
+    color: var(--black);
+    border: 1px solid var(--black);
+    background-color: transparent;
+    background-image: url("../../images/arrow-back-cart.svg");
+    background-repeat: no-repeat;
+    background-position: 20px center;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    @include for-phone-only {
+      background-position: 30px center;
+    }
+  }
+
+  &__pay {
+    color: var(--white);
+    border: 1px solid var(--orange);
+    background-color: var(--orange);
+
+    &:hover {
+      color: var(--orange);
+      background-color: var(--white);
+    }
+  }
+}

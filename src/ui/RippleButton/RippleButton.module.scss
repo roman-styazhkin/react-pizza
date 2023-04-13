@@ -1,0 +1,41 @@
+.root {
+  font: inherit;
+  border-radius: inherit;
+  border: none;
+  background-color: inherit;
+  color: inherit;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  &__ripple {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    display: block;
+    border-radius: 9999px;
+    opacity: 1;
+    animation: 0.9s ease 1 forwards ripple-effect;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@keyframes ripple-effect {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(10);
+    opacity: 0.375;
+  }
+  100% {
+    transform: scale(35);
+    opacity: 0;
+  }
+}

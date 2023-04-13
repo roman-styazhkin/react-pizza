@@ -1,0 +1,87 @@
+.root {
+  position: relative;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 17px;
+  width: fit-content;
+  flex: none;
+
+  &.isLoading {
+    pointer-events: none;
+  }
+
+  &:hover &__selected {
+    border-bottom: 1px dotted var(--orange);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 10px;
+    height: 6px;
+    background-image: url("../../images/triangle.svg");
+    background-repeat: no-repeat;
+    background-position: left top;
+  }
+
+  &.isOpen {
+    &::before {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+
+  &__heading {
+    font-size: 14px;
+    line-height: 17px;
+    margin-right: 10px;
+  }
+
+  &__selected {
+    border-bottom: 1px solid transparent;
+    color: var(--orange);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    display: block;
+    width: 80px;
+  }
+
+  &__modal {
+    position: absolute;
+    right: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.09);
+    border-radius: 10px;
+    background-color: var(--white);
+    width: 150px;
+    overflow: hidden;
+    z-index: 80;
+  }
+
+  &__element {
+    padding: 15px;
+    border: none;
+    background-color: var(--white);
+    display: block;
+    width: 100%;
+    text-align: left;
+
+    &:hover {
+      background-color: rgba(254, 95, 30, 0.05);
+    }
+
+    &.active {
+      font-weight: 700;
+      color: var(--orange);
+      background-color: rgba(254, 95, 30, 0.05);
+    }
+  }
+}

@@ -1,0 +1,50 @@
+.root {
+  display: flex;
+  align-items: center;
+
+  &__asc,
+  &__desc {
+    position: relative;
+    border: none;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 3px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-image: url("../../images/arrow-sort.svg");
+      background-position: center center;
+      background-repeat: no-repeat;
+      height: 15px;
+      width: 15px;
+    }
+
+    &.active {
+      &::before {
+        background-image: url("../../images/arrow-sort-active.svg");
+      }
+    }
+
+    &:hover {
+      opacity: 0.3;
+    }
+  }
+
+  &__asc {
+    &::before {
+      transform: translate(-50%, -50%) rotate(-90deg);
+    }
+  }
+
+  &__desc {
+    &::before {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+  }
+}

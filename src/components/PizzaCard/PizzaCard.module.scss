@@ -1,0 +1,164 @@
+.root {
+  display: flex;
+  flex-flow: column;
+
+  width: 280px;
+  margin: 0 auto;
+
+  text-align: center;
+  &__img {
+    width: 260px;
+    height: 260px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+
+    transition: transform 0.1s linear;
+
+    &:hover {
+      transition: transform 0.1s linear;
+      transform: translateY(2px);
+    }
+  }
+
+  &__heading {
+    font-size: 20px;
+
+    flex-grow: 1;
+
+    margin-bottom: 10px;
+
+    letter-spacing: 0.01em;
+  }
+
+  &__panel {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+
+    border-radius: 5px;
+    background-color: var(--gallery);
+  }
+
+  &__types,
+  &__sizes {
+    display: flex;
+
+    gap: 10px;
+  }
+
+  &__types {
+    margin-bottom: 10px;
+  }
+
+  &__button {
+    width: 100%;
+    height: 30px;
+
+    border: none;
+    background-color: transparent;
+
+    &.active {
+      font-weight: 700;
+
+      border-radius: 5px;
+      background-color: var(--white);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &__price {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__add {
+    font-size: 16px;
+    font-weight: 700;
+
+    position: relative;
+
+    height: 40px;
+
+    color: var(--orange);
+    border: 1px solid var(--orange);
+    border-radius: 30px;
+    background-color: var(--white);
+
+    &::before {
+      position: absolute;
+      z-index: 10;
+      top: 50%;
+      left: 15px;
+
+      width: 12px;
+      height: 12px;
+
+      content: "";
+      transform: translateY(-50%);
+      pointer-events: none;
+
+      background-image: url("../../images/increment-icon.svg");
+      background-repeat: no-repeat;
+      background-position: left center;
+    }
+
+    &:hover {
+      color: var(--white);
+      background-color: var(--orange);
+
+      &::before {
+        background-image: url("../../images/increment-icon-hover.svg");
+      }
+
+      .root__counter {
+        color: var(--orange);
+        background-color: var(--white);
+      }
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+
+  &__label {
+    padding: 0 30px;
+  }
+
+  &__counter {
+    font-size: 12px;
+    line-height: 0;
+
+    position: absolute;
+    top: 50%;
+    right: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 20px;
+    height: 20px;
+
+    transform: translateY(-50%);
+    pointer-events: none;
+
+    color: var(--white);
+    border-radius: 50%;
+    background-color: var(--orange);
+  }
+}

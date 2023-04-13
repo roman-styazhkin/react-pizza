@@ -1,0 +1,62 @@
+@import "../../styles/media.scss";
+
+.root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 100px;
+
+  &__top {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 30px;
+    flex-wrap: wrap;
+
+    @include for-tablet-only {
+      padding: 25px 0;
+      margin-bottom: 15px;
+      row-gap: 20px;
+    }
+  }
+
+  &__title {
+    padding-left: 50px;
+    background-image: url("../../images/shop-cart.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: 0.01em;
+
+    @include for-tablet-only {
+      font-size: 25px;
+      background-image: none;
+      padding-left: 0;
+    }
+  }
+
+  &__clear {
+    opacity: 0.5;
+    border: none;
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--black);
+    background-color: transparent;
+    padding-left: 30px;
+    background-image: url("../../images/trash-icon.svg");
+    background-repeat: no-repeat;
+    background-position: left center;
+    flex: none;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:active {
+      opacity: 0.7;
+    }
+  }
+}
