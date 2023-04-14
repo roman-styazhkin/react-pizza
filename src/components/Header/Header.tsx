@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./Header.module.scss";
 import logo from "../../images/logo.svg";
 import RippleButton from "../../ui/RippleButton/RippleButton";
@@ -11,14 +12,14 @@ import { selectCart } from "../../redux/slices/cartSlice";
 import { selectPizzas } from "../../redux/slices/pizzaItems";
 import classNames from "classnames";
 
-const Header = () => {
+const Header: React.FC = () => {
   const dispatch = useDispatch();
-  const [localSearchQuery, setLocalSearchQuery] = useState("");
+  const [localSearchQuery, setLocalSearchQuery] = useState<string>("");
   const { pathname } = useLocation();
   const isHomePage = pathname === "/react-pizza/";
   const { totalPizzaCount, totalPrice } = useSelector(selectCart);
   const { isLoading } = useSelector(selectPizzas);
-  const inputRef = useRef();
+  const inputRef = useRef<HTMLInputElement>();
 
   const updateSearch = useCallback(
     debounce((e) => dispatch(setSearchQuery(e.target.value)), 1000),
@@ -28,10 +29,12 @@ const Header = () => {
   const onClearSearch = () => {
     dispatch(setSearchQuery(""));
     setLocalSearchQuery("");
-    inputRef.current.focus();
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
   };
 
-  const onUpdateSearchQuery = (e) => {
+  const onUpdateSearchQuery = (e: React.BaseSyntheticEvent) => {
     updateSearch(e);
     setLocalSearchQuery(e.target.value);
   };
