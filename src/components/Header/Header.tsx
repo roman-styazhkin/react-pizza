@@ -22,7 +22,7 @@ const Header: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const updateSearch = useCallback(
-    debounce((e) => dispatch(setSearchQuery(e.target.value)), 1000),
+    debounce((e) => dispatch(setSearchQuery(e.target.value)), 500),
     []
   );
 

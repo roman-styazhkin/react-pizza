@@ -37,7 +37,6 @@ const PizzaCard: React.FC<PizzaCardProps> = ({
   const ratio = sizeValues[activeSize as keyof typeof sizeValues];
   const pizzaPrice = Math.floor(price * ratio);
   const pizzaId = `${id}_${activeType}${activeSize}`;
-  const pizzaData = useSelector(selectItemById(pizzaId));
 
   const onClickAddItem = () => {
     const pizzaInfo = {
@@ -94,7 +93,6 @@ const PizzaCard: React.FC<PizzaCardProps> = ({
           <RippleButton rippleColor={"var(--hit-pink)"}>
             <span className={styles.root__label}>Добавить</span>
           </RippleButton>
-          <span className={styles.root__counter}>{pizzaData?.count || 0}</span>
         </div>
       </div>
     </article>

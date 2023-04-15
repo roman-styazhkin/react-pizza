@@ -86,10 +86,11 @@
   }
 
   &__add {
+    position: relative;
     font-size: 16px;
     font-weight: 700;
-
-    position: relative;
+    display: flex;
+    align-items: center;
 
     height: 40px;
 
@@ -102,12 +103,12 @@
       position: absolute;
       z-index: 10;
       top: 50%;
-      left: 15px;
+      left: 12px;
 
       width: 12px;
       height: 12px;
 
-      content: "";
+      // content: "";
       transform: translateY(-50%);
       pointer-events: none;
 
@@ -136,29 +137,6 @@
   }
 
   &__label {
-    padding: 0 30px;
-  }
-
-  &__counter {
-    font-size: 12px;
-    line-height: 0;
-
-    position: absolute;
-    top: 50%;
-    right: 10px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 20px;
-    height: 20px;
-
-    transform: translateY(-50%);
-    pointer-events: none;
-
-    color: var(--white);
-    border-radius: 50%;
-    background-color: var(--orange);
+    padding: 0 20px;
   }
 }
