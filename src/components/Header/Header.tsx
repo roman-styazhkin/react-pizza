@@ -32,7 +32,7 @@ const Header: React.FC = () => {
     inputRef.current?.focus();
   };
 
-  const onUpdateSearchQuery = (e) => {
+  const onUpdateSearchQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
     updateSearch(e);
     setLocalSearchQuery(e.target.value);
   };

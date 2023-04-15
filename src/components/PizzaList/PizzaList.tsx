@@ -1,7 +1,11 @@
 import React from "react";
 import styles from "./PizzaList.module.scss";
 
-const PizzaList: React.FC = ({ children }) => {
+type PizzaListProps = {
+  children: React.ReactNode;
+};
+
+const PizzaList: React.FC<PizzaListProps> = ({ children }) => {
   return <div className={styles.root}>{children}</div>;
 };
 

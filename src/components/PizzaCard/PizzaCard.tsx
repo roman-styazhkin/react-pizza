@@ -17,8 +17,8 @@ const sizeValues = {
 type PizzaCardProps = {
   id: string;
   imageUrl: string;
-  types: Array<number>;
-  sizes: Array<number>;
+  types: number[];
+  sizes: number[];
   title: string;
   price: number;
 };
@@ -60,7 +60,7 @@ const PizzaCard: React.FC<PizzaCardProps> = ({
       <h2 className={styles.root__heading}>{title}</h2>
       <div className={styles.root__panel}>
         <div className={styles.root__types}>
-          {types.map((item: any, i: number) => (
+          {types.map((item: number, i: number) => (
             <button
               onClick={() => setActiveType(item)}
               className={classNames(styles.root__button, {

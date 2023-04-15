@@ -1,7 +1,11 @@
 import React from "react";
 import styles from "./VisuallyHidden.module.scss";
 
-const VisuallyHidden: React.FC = ({ children }) => {
+type VisuallyHiddenProps = {
+  children: React.ReactNode;
+};
+
+const VisuallyHidden: React.FC<VisuallyHiddenProps> = ({ children }) => {
   return <div className={styles.root}>{children}</div>;
 };
 
