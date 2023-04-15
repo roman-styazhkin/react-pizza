@@ -9,7 +9,12 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { selectPizzas } from "../../redux/slices/pizzaItems";
 
-const categoryList = [
+type CategoryItem = {
+  id: number;
+  label: string;
+};
+
+const categoryList: CategoryItem[] = [
   {
     id: 0,
     label: "Все",
@@ -41,19 +46,19 @@ const categoryList = [
   },
 ];
 
-const PizzaCategory = () => {
+const PizzaCategory: React.FC = () => {
   const { categoryId } = useSelector(selectFilterPizza);
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
-  const categoryRef = useRef();
+  const categoryRef = useRef<HTMLDivElement>(null);
   const { isLoading } = useSelector(selectPizzas);
 
-  const onSelectCategory = (id) => {
+  const onSelectCategory = (id: number) => {
     dispatch(setCategoryId(id));
     setIsOpen(false);
   };
 
-  const onClickOutside = (e) => {
+  const onClickOutside = (e: any) => {
     e.stopPropagation();
     if (!e.composedPath().includes(categoryRef.current)) {
       setIsOpen(false);

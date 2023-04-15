@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useRef } from "react";
 import styles from "./Home.module.scss";
 import PizzaSort from "../../components/PizzaSort/PizzaSort";
@@ -16,7 +17,7 @@ import {
 import isEqual from "lodash.isequal";
 import { fetchPizzas, selectPizzas } from "../../redux/slices/pizzaItems";
 
-const Home = () => {
+const Home: React.FC = () => {
   const { sortName, categoryId, order, searchQuery } =
     useSelector(selectFilterPizza);
   const { items, pizzaCounter, isLoading } = useSelector(selectPizzas);
@@ -97,7 +98,9 @@ const Home = () => {
     <PizzaSkeleton key={i} />
   ));
 
-  const pizzaItems = items.map((item) => <PizzaCard key={item.id} {...item} />);
+  const pizzaItems = items.map((item: any) => (
+    <PizzaCard key={item.id} {...item} />
+  ));
 
   return (
     <div className={styles.root}>

@@ -1,11 +1,17 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import styles from "./RippleButton.module.scss";
 
-const RippleButton = ({ children, onClick, rippleColor, disabled }) => {
+const RippleButton: React.FC = ({
+  children,
+  onClick,
+  rippleColor,
+  disabled,
+}) => {
   const [coords, setCoords] = useState({ x: -1, y: -1 });
   const [isRippling, setIsRippling] = useState(false);
 
-  const onClickShowRippleEffect = (e) => {
+  const onClickShowRippleEffect = (e: any) => {
     const rect = e.target.getBoundingClientRect();
     setCoords({ x: e.clientX - rect.left, y: e.clientY - rect.top });
     onClick && onClick(e);

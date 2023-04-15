@@ -1,3 +1,4 @@
+import React from "react";
 import classNames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -8,12 +9,30 @@ import {
 } from "../../redux/slices/cartSlice";
 import styles from "./CartItem.module.scss";
 
-const CartItem = ({ id, imageUrl, title, size, count, totalPrice, type }) => {
+type CartItemProps = {
+  id: string;
+  imageUrl: string;
+  title: string;
+  size: number;
+  count: number;
+  totalPrice: number;
+  type: string;
+};
+
+const CartItem: React.FC<CartItemProps> = ({
+  id,
+  imageUrl,
+  title,
+  size,
+  count,
+  totalPrice,
+  type,
+}) => {
   const dispatch = useDispatch();
   const { items } = useSelector(selectCart);
-  const pizzaData = items.find((item) => item.id === id);
+  const pizzaData = items.find((item: any) => item.id === id);
 
-  const confirmAction = (action) => {
+  const confirmAction = (action: any) => {
     const question = `Вы уверены, что хотите удалить пиццу ${pizzaData.title}?`;
     if (window.confirm(question)) {
       dispatch(action);

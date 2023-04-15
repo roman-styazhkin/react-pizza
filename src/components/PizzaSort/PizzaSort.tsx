@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./PizzaSort.module.scss";
 import classNames from "classnames";
 import PizzaOrder from "../PizzaOrder/PizzaOrder";
@@ -14,7 +15,7 @@ const sortList = {
   alphabet: { id: 4, label: "Алфавит", name: "title" },
 };
 
-const PizzaSort = () => {
+const PizzaSort: React.FC = () => {
   const dispatch = useDispatch();
   const { sortName } = useSelector(selectFilterPizza);
   const { isLoading } = useSelector(selectPizzas);

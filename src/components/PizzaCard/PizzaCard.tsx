@@ -1,3 +1,4 @@
+import React from "react";
 import classNames from "classnames";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,25 +7,34 @@ import RippleButton from "../../ui/RippleButton/RippleButton";
 import styles from "./PizzaCard.module.scss";
 
 const typeNames = ["тонкое", "традиционное"];
+
 const sizeValues = {
-  26: {
-    ratio: 1,
-  },
-
-  30: {
-    ratio: 1.25,
-  },
-
-  40: {
-    ratio: 1.5,
-  },
+  26: 1,
+  30: 1.25,
+  40: 1.5,
 };
 
-const PizzaCard = ({ id, imageUrl, types, sizes, title, price }) => {
+type PizzaCardProps = {
+  id: string;
+  imageUrl: string;
+  types: Array<number>;
+  sizes: Array<number>;
+  title: string;
+  price: number;
+};
+
+const PizzaCard: React.FC<PizzaCardProps> = ({
+  id,
+  imageUrl,
+  types,
+  sizes,
+  title,
+  price,
+}) => {
   const dispatch = useDispatch();
   const [activeType, setActiveType] = useState(types[0]);
   const [activeSize, setActiveSize] = useState(sizes[0]);
-  const { ratio } = sizeValues[activeSize];
+  const ratio = sizeValues[activeSize as keyof typeof sizeValues];
   const pizzaPrice = Math.floor(price * ratio);
   const pizzaId = `${id}_${activeType}${activeSize}`;
   const pizzaData = useSelector(selectItemById(pizzaId));
@@ -50,7 +60,7 @@ const PizzaCard = ({ id, imageUrl, types, sizes, title, price }) => {
       <h2 className={styles.root__heading}>{title}</h2>
       <div className={styles.root__panel}>
         <div className={styles.root__types}>
-          {types.map((item, i) => (
+          {types.map((item: any, i: number) => (
             <button
               onClick={() => setActiveType(item)}
               className={classNames(styles.root__button, {
@@ -64,7 +74,7 @@ const PizzaCard = ({ id, imageUrl, types, sizes, title, price }) => {
           ))}
         </div>
         <div className={styles.root__sizes}>
-          {sizes.map((size) => (
+          {sizes.map((size: number) => (
             <button
               onClick={() => setActiveSize(size)}
               className={classNames(styles.root__button, {

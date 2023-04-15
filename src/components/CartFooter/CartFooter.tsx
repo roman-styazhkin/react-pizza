@@ -1,3 +1,4 @@
+import React from "react";
 import classNames from "classnames";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -5,7 +6,7 @@ import { selectCart } from "../../redux/slices/cartSlice";
 import Container from "../Container/Container";
 import styles from "./CartFooter.module.scss";
 
-const CartFooter = () => {
+const CartFooter: React.FC = () => {
   const { totalPrice, totalPizzaCount } = useSelector(selectCart);
   const navigate = useNavigate();
 

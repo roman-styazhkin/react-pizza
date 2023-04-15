@@ -19,7 +19,7 @@ const Header: React.FC = () => {
   const isHomePage = pathname === "/react-pizza/";
   const { totalPizzaCount, totalPrice } = useSelector(selectCart);
   const { isLoading } = useSelector(selectPizzas);
-  const inputRef = useRef<HTMLInputElement>();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const updateSearch = useCallback(
     debounce((e) => dispatch(setSearchQuery(e.target.value)), 1000),
@@ -29,12 +29,10 @@ const Header: React.FC = () => {
   const onClearSearch = () => {
     dispatch(setSearchQuery(""));
     setLocalSearchQuery("");
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
+    inputRef.current?.focus();
   };
 
-  const onUpdateSearchQuery = (e: React.BaseSyntheticEvent) => {
+  const onUpdateSearchQuery = (e) => {
     updateSearch(e);
     setLocalSearchQuery(e.target.value);
   };

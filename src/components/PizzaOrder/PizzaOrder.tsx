@@ -1,3 +1,4 @@
+import React from "react";
 import classNames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -7,7 +8,7 @@ import {
 import { selectPizzas } from "../../redux/slices/pizzaItems";
 import styles from "./PizzaOrder.module.scss";
 
-const PizzaOrder = () => {
+const PizzaOrder: React.FC = () => {
   const { order } = useSelector(selectFilterPizza);
   const dispatch = useDispatch();
   const { isLoading } = useSelector(selectPizzas);
