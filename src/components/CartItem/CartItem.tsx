@@ -30,10 +30,12 @@ const CartItem: React.FC<CartItemProps> = ({
 }) => {
   const dispatch = useDispatch();
   const { items } = useSelector(selectCart);
-  const pizzaData = items.find(({ id }: any) => id === id);
+  const pizzaData = items.find(({ id }) => id === id);
 
   const confirmAction = (action: any) => {
-    const question = `Вы уверены, что хотите удалить пиццу ${pizzaData.title}?`;
+    const question = `Вы уверены, что хотите удалить пиццу ${
+      pizzaData && pizzaData.title
+    }?`;
     if (window.confirm(question)) {
       dispatch(action);
     }
@@ -44,12 +46,12 @@ const CartItem: React.FC<CartItemProps> = ({
   };
 
   const onRemoveItem = () => {
-    if (pizzaData.count < 2) {
+    if (pizzaData && pizzaData.count < 2) {
       confirmAction(removeItem({ ...pizzaData }));
       return;
     }
 
-    dispatch(removeItem({ ...pizzaData }));
+    pizzaData && dispatch(removeItem({ ...pizzaData }));
   };
 
   return (
