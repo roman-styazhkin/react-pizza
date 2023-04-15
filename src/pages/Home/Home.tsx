@@ -31,7 +31,6 @@ const Home: React.FC = () => {
 
     if (windowSearchQuery) {
       const params = qs.parse(windowSearchQuery, { ignoreQueryPrefix: true });
-      console.log(params);
 
       dispatch(setFilters({ ...params }));
       isSearched.current = true;

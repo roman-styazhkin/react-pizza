@@ -2,20 +2,20 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
 type CartItemType = {
-  id: string,
-  imageUrl: string
-  title: string
-  type: string,
-  size: number,
-  price: number,
-  totalPrice: number,
-  count: number,
-}
+  id: string;
+  imageUrl: string;
+  title: string;
+  type: string;
+  size: number;
+  price: number;
+  totalPrice: number;
+  count: number;
+};
 
 interface CartSliceState {
-  items: CartItemType[],
-  totalPrice: number,
-  totalPizzaCount: number,
+  items: CartItemType[];
+  totalPrice: number;
+  totalPizzaCount: number;
 }
 
 const initialState: CartSliceState = {
@@ -55,7 +55,7 @@ const cartSlice = createSlice({
       recalculatePrice(state);
     },
 
-    removeItem: (state, action:  PayloadAction<CartItemType>) => {
+    removeItem: (state, action: PayloadAction<CartItemType>) => {
       const findedItem = state.items.find(
         (item) => item.id === action.payload.id
       );
@@ -72,7 +72,7 @@ const cartSlice = createSlice({
       recalculatePrice(state);
     },
 
-    deleteItem: (state, action) => {
+    deleteItem: (state, action: PayloadAction<string>) => {
       state.items = state.items.filter((item) => item.id !== action.payload);
       recalculatePrice(state);
     },

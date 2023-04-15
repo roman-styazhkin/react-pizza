@@ -51,8 +51,6 @@ const PizzaCard: React.FC<PizzaCardProps> = ({
       count: 1,
     };
 
-    console.log(pizzaInfo);
-
     dispatch(addItem({ ...pizzaInfo }));
   };
 
