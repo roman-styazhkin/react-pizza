@@ -58,9 +58,12 @@ const PizzaCategory: React.FC = () => {
     setIsOpen(false);
   };
 
-  const onClickOutside = (e) => {
+  const onClickOutside = (e: MouseEvent) => {
     e.stopPropagation();
-    if (!e.composedPath().includes(categoryRef.current)) {
+    if (
+      categoryRef.current &&
+      !e.composedPath().includes(categoryRef.current)
+    ) {
       setIsOpen(false);
     }
   };

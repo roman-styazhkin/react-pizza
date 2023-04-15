@@ -30,7 +30,7 @@ const CartItem: React.FC<CartItemProps> = ({
 }) => {
   const dispatch = useDispatch();
   const { items } = useSelector(selectCart);
-  const pizzaData = items.find((item: any) => item.id === id);
+  const pizzaData = items.find(({ id }: any) => id === id);
 
   const confirmAction = (action: any) => {
     const question = `Вы уверены, что хотите удалить пиццу ${pizzaData.title}?`;
