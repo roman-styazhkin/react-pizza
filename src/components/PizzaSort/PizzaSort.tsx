@@ -15,7 +15,7 @@ const sortList = {
   alphabet: { id: 4, label: "Алфавит", name: "title" },
 };
 
-const PizzaSort: React.FC = () => {
+const PizzaSort: React.FC = React.memo(() => {
   const dispatch = useDispatch();
   const { sortName } = useSelector(selectFilterPizza);
   const { isLoading } = useSelector(selectPizzas);
@@ -39,6 +39,6 @@ const PizzaSort: React.FC = () => {
       <PizzaOrder />
     </div>
   );
-};
+});
 
 export default PizzaSort;

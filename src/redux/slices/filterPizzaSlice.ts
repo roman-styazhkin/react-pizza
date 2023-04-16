@@ -47,6 +47,14 @@ const filterPizzaSlice = createSlice({
       state.categoryId = categoryId;
       state.order = order;
     },
+
+    resetFilters: (state) => {
+      state.sortName = "rating";
+      state.categoryId = 0;
+      state.order = "asc";
+      state.searchQuery = "";
+      state.searchValue = "";
+    },
   },
 });
 
@@ -59,5 +67,6 @@ export const {
   setSearchQuery,
   setFilters,
   setSearchValue,
+  resetFilters,
 } = filterPizzaSlice.actions;
 export default filterPizzaSlice.reducer;

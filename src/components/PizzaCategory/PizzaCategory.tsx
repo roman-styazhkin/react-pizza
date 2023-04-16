@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import styles from "./PizzaCategory.module.scss";
@@ -46,7 +47,7 @@ const categoryList: CategoryItem[] = [
   },
 ];
 
-const PizzaCategory: React.FC = () => {
+const PizzaCategory: React.FC = React.memo(() => {
   const { categoryId } = useSelector(selectFilterPizza);
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
@@ -77,7 +78,7 @@ const PizzaCategory: React.FC = () => {
   }, []);
 
   const categoryName = categoryList.find(
-    (item) => item.id === categoryId
+    (item) => item.id == categoryId
   )?.label;
 
   return (
@@ -112,6 +113,6 @@ const PizzaCategory: React.FC = () => {
       )}
     </div>
   );
-};
+});
 
 export default PizzaCategory;

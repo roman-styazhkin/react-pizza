@@ -6,6 +6,7 @@ import Input from "../../ui/Input/Input";
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  resetFilters,
   selectFilterPizza,
   setSearchQuery,
   setSearchValue,
@@ -36,6 +37,10 @@ const Header: React.FC = () => {
     inputRef.current?.focus();
   };
 
+  const onResetHomeFilters = () => {
+    isHomePage && dispatch(resetFilters());
+  };
+
   const onUpdateSearchQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
     updateSearch(e);
     dispatch(setSearchValue(e.target.value));
@@ -45,9 +50,11 @@ const Header: React.FC = () => {
     <header className={styles.root}>
       <div className={styles.root__inner}>
         <div className={styles.root__column}>
-          <Link className={styles.root__logo} to="/react-pizza/">
-            <img src={logo} alt="logo" />
-          </Link>
+          <div onClick={onResetHomeFilters} className={styles.root__reset}>
+            <Link className={styles.root__logo} to="/react-pizza/">
+              <img src={logo} alt="logo" />
+            </Link>
+          </div>
         </div>
 
         {isHomePage && (
