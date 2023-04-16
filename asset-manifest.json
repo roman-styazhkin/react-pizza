@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-pizza/static/css/main.46775ae0.css",
-    "main.js": "/react-pizza/static/js/main.80dae645.js",
+    "main.js": "/react-pizza/static/js/main.8bda1dd0.js",
     "static/media/logo.svg": "/react-pizza/static/media/logo.f26e3429b9bca65eb9636b8e28e4f196.svg",
     "static/media/search-icon.svg": "/react-pizza/static/media/search-icon.3e52a495255c6cdc90a7.svg",
     "static/media/shop-cart.svg": "/react-pizza/static/media/shop-cart.dcd5168086a25b3307ba.svg",
@@ -16,10 +16,10 @@
     "static/media/arrow-sort.svg": "/react-pizza/static/media/arrow-sort.034c263059e32675545a.svg",
     "static/media/arrow-back-cart.svg": "/react-pizza/static/media/arrow-back-cart.0edecebebeddfa198481.svg",
     "main.46775ae0.css.map": "/react-pizza/static/css/main.46775ae0.css.map",
-    "main.80dae645.js.map": "/react-pizza/static/js/main.80dae645.js.map"
+    "main.8bda1dd0.js.map": "/react-pizza/static/js/main.8bda1dd0.js.map"
   },
   "entrypoints": [
     "static/css/main.46775ae0.css",
-    "static/js/main.80dae645.js"
+    "static/js/main.8bda1dd0.js"
   ]
 }
