@@ -5,6 +5,7 @@ import Container from "../../components/Container/Container";
 import { useDispatch, useSelector } from "react-redux";
 import CartFooter from "../../components/CartFooter/CartFooter";
 import { clearItems, selectCart } from "../../redux/slices/cartSlice";
+import EmptyCart from "../../components/EmptyCart/EmptyCart";
 
 const Cart: React.FC = () => {
   const dispatch = useDispatch();
@@ -31,6 +32,8 @@ const Cart: React.FC = () => {
             Очистить корзину
           </button>
         </div>
+
+        {items.length < 1 && <EmptyCart />}
 
         <div className={styles.root__inner}>
           {items.map((item: any) => (

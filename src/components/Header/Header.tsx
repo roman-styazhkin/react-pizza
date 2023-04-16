@@ -5,19 +5,23 @@ import RippleButton from "../../ui/RippleButton/RippleButton";
 import Input from "../../ui/Input/Input";
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setSearchQuery } from "../../redux/slices/filterPizzaSlice";
+import {
+  selectFilterPizza,
+  setSearchQuery,
+  setSearchValue,
+} from "../../redux/slices/filterPizzaSlice";
 import debounce from "lodash.debounce";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useRef } from "react";
 import { selectCart } from "../../redux/slices/cartSlice";
 import { selectPizzas } from "../../redux/slices/pizzaItems";
 import classNames from "classnames";
 
 const Header: React.FC = () => {
   const dispatch = useDispatch();
-  const [localSearchQuery, setLocalSearchQuery] = useState<string>("");
   const { pathname } = useLocation();
   const isHomePage = pathname === "/react-pizza/";
   const { totalPizzaCount, totalPrice } = useSelector(selectCart);
+  const { searchValue } = useSelector(selectFilterPizza);
   const { isLoading } = useSelector(selectPizzas);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -28,13 +32,13 @@ const Header: React.FC = () => {
 
   const onClearSearch = () => {
     dispatch(setSearchQuery(""));
-    setLocalSearchQuery("");
+    dispatch(setSearchValue(""));
     inputRef.current?.focus();
   };
 
   const onUpdateSearchQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
     updateSearch(e);
-    setLocalSearchQuery(e.target.value);
+    dispatch(setSearchValue(e.target.value));
   };
 
   return (
@@ -53,10 +57,10 @@ const Header: React.FC = () => {
                 innerref={inputRef}
                 placeholder="Поиск пиццы..."
                 onChange={onUpdateSearchQuery}
-                value={localSearchQuery}
+                value={searchValue}
               />
               <div className={styles.root__decor}></div>
-              {localSearchQuery && (
+              {searchValue && (
                 <button
                   className={styles.root__clear}
                   onClick={onClearSearch}

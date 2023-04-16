@@ -6,6 +6,7 @@ interface FilterState {
   categoryId: number;
   order: string;
   searchQuery: string;
+  searchValue: string;
 }
 
 const initialState: FilterState = {
@@ -13,6 +14,7 @@ const initialState: FilterState = {
   categoryId: 0,
   order: "asc",
   searchQuery: "",
+  searchValue: "",
 };
 
 const filterPizzaSlice = createSlice({
@@ -35,6 +37,10 @@ const filterPizzaSlice = createSlice({
       state.searchQuery = action.payload;
     },
 
+    setSearchValue: (state, action: PayloadAction<string>) => {
+      state.searchValue = action.payload;
+    },
+
     setFilters: (state, action) => {
       const { sortName, categoryId, order } = action.payload;
       state.sortName = sortName;
@@ -52,5 +58,6 @@ export const {
   setOrder,
   setSearchQuery,
   setFilters,
+  setSearchValue,
 } = filterPizzaSlice.actions;
 export default filterPizzaSlice.reducer;

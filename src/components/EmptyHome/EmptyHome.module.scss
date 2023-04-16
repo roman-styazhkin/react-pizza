@@ -1,0 +1,22 @@
+.root {
+  text-align: center;
+
+  &__title {
+    font-size: 32px;
+    font-weight: 400;
+  }
+
+  &__example {
+    border: none;
+    background-color: transparent;
+    display: block;
+    margin: 0 auto;
+    color: var(--orange);
+    margin-top: 40px;
+    font-size: 24px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

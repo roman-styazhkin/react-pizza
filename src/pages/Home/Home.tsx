@@ -16,6 +16,7 @@ import {
 } from "../../redux/slices/filterPizzaSlice";
 import isEqual from "lodash.isequal";
 import { fetchPizzas, selectPizzas } from "../../redux/slices/pizzaItems";
+import EmptyHome from "../../components/EmptyHome/EmptyHome";
 
 const Home: React.FC = () => {
   const { sortName, categoryId, order, searchQuery } =
@@ -101,6 +102,16 @@ const Home: React.FC = () => {
   const pizzaItems = items.map((item: any) => (
     <PizzaCard key={item.id} {...item} />
   ));
+
+  if (items.length < 1 && searchQuery.length) {
+    return (
+      <div className={styles.root}>
+        <Container>
+          <EmptyHome />
+        </Container>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.root}>
