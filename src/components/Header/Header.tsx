@@ -20,7 +20,7 @@ import classNames from "classnames";
 const Header: React.FC = () => {
   const dispatch = useDispatch();
   const { pathname } = useLocation();
-  const isHomePage = pathname === "/";
+  const isHomePage = pathname === "/react-pizza";
   const { totalPizzaCount, totalPrice } = useSelector(selectCart);
   const { searchValue } = useSelector(selectFilterPizza);
   const { isLoading } = useSelector(selectPizzas);
@@ -51,7 +51,7 @@ const Header: React.FC = () => {
       <div className={styles.root__inner}>
         <div className={styles.root__column}>
           <div onClick={onResetHomeFilters} className={styles.root__reset}>
-            <Link className={styles.root__logo} to="/">
+            <Link className={styles.root__logo} to="/react-pizza">
               <img src={logo} alt="logo" />
             </Link>
           </div>
@@ -79,7 +79,7 @@ const Header: React.FC = () => {
             <div className={styles.root__column}>
               <div className={styles.root__cart}>
                 <Link
-                  to="/cart"
+                  to="/react-pizza/cart"
                   className={classNames("", {
                     [styles.disabled]: isLoading,
                   })}
