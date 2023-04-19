@@ -2,7 +2,7 @@
 
 ## Стэк: React, Redux Toolkit, Typescript
 
-Ссылка на проект http://roman-styazhkin.github.io/react-pizza
+Ссылка на проект https://react-pizza-virid-rho.vercel.app/
 
 # Краткое описание:
 
