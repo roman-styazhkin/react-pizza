@@ -23,7 +23,7 @@ const CartFooter: React.FC = () => {
         </div>
         <div className={styles.root__bottom}>
           <button
-            onClick={() => navigate("/react-pizza")}
+            onClick={() => navigate("/react-pizza/")}
             className={classNames(styles.root__button, styles.root__back)}
             type="button"
           >

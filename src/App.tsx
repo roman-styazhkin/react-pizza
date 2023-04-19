@@ -10,8 +10,8 @@ const App: React.FC = () => {
     <SimpleBar style={{ maxHeight: "100vh" }}>
       <Header />
       <Routes>
-        <Route path="react-pizza" element={<Home />} />
-        <Route path="react-pizza/cart" element={<Cart />} />
+        <Route path="/react-pizza" element={<Home />} />
+        <Route path="/react-pizza/cart" element={<Cart />} />
       </Routes>
     </SimpleBar>
   );
